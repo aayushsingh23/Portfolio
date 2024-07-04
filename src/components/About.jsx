@@ -37,7 +37,7 @@ const About = () => {
 
     <motion.p variants={fadeIn("","",0.1,1)}
     className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque ut molestias dolorem tempora aliquid ipsam, obcaecati reprehenderit quod rerum quis aliquam odio similique, distinctio ipsum nisi at voluptate expedita alias!
+      I am a third year student from Thapar Institute of Engineering and Technology. I have ameature level skills in C/C++, Python, MySql and working with operating systems. I am a quick learner and aspire to be a developer. Lets work together and bring out the best for both of us.
     </motion.p>
 
     <div className='mt-20 flex flex-wrap gap-10'>
