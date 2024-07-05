@@ -18,8 +18,9 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <ComputersCanvas className="sm:block hidden" />
-
+      <div className="hidden sm:block">
+        <ComputersCanvas />
+      </div>
       <div className='absolute xs:bottom-0 bottom-0 w-full flex justify-center items-center'>
         <a href='#about'>
           <div className='w-[30px] h-[54px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
