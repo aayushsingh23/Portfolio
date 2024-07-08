@@ -223,9 +223,9 @@ const projects = [
     source_code_link: "https://github.com/aayushsingh23/Guide-for-Guides",
   },
   {
-    name: "Basic ERP",
+    name: "Angular ERP",
     description:
-      "It is a basic ERP system that stores information about employees of a company with their photograph. It also displays the list of employees and is able to fetch from the list of employees",
+      "It is a basic ERP system that stores information about employees of a company with their photograph. It also displays the list of employees and is able to fetch from the list of employees. It can be uses ng-forms and localstorage from where the data can be fed to the database.",
     tags: [
       {
         name: "TypeScript",
