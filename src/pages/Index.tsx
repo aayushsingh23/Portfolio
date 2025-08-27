@@ -10,8 +10,13 @@ const Index = () => {
     const [currentData, setCurrentData] = useState<any>(null);
 
     const handleCommandNavigation = (command: string, data?: any) => {
-        setCurrentView(command as ViewMode);
-        setCurrentData(data);
+        if (command === "default") {
+            setCurrentView("default");
+            setCurrentData(null);
+        } else {
+            setCurrentView(command as ViewMode);
+            setCurrentData(data);
+        }
     };
 
     const handleBackToDefault = () => {

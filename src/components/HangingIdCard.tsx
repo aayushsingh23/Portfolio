@@ -198,7 +198,7 @@ export const HangingIdCard = () => {
             {/* Header */}
             <div className="text-center mb-8">
               <div className="text-sm text-green-300 mb-2 font-mono">SYSTEM_ID_CARD</div>
-              <div className="text-xl font-bold text-green-100 tracking-wide">JOHN DEVELOPER</div>
+              <div className="text-xl font-bold text-green-100 tracking-wide">AAYUSH SINGH</div>
               <motion.div 
                 className="text-sm text-green-200 bg-green-800 px-2 py-1 rounded inline-block border border-green-600"
                 animate={{
@@ -230,11 +230,11 @@ export const HangingIdCard = () => {
             <div className="space-y-4 text-base flex-1">
               <div className="flex justify-between border-b border-green-700/50 pb-2">
                 <span className="text-green-300 font-mono">ROLE:</span>
-                <span className="text-green-100">Full Stack Developer</span>
+                <span className="text-green-100">Software Developer</span>
               </div>
               <div className="flex justify-between border-b border-green-700/50 pb-2">
                 <span className="text-green-300 font-mono">LEVEL:</span>
-                <span className="text-green-100">Senior</span>
+                <span className="text-green-100">Student</span>
               </div>
               <div className="flex justify-between border-b border-green-700/50 pb-2">
                 <span className="text-green-300 font-mono">STATUS:</span>
