@@ -110,6 +110,14 @@ const commands = {
                 deployed: null // No deployed link yet
             },
             {
+                name: "BetterMehta",
+                tech: ["Flask", "PrinterSpooler API", "OpenAI"],
+                description: "Intelligent print store management",
+                status: "Completed",
+                github: "https://github.com/Pancham1603/BetterMehta",
+                deployed: null // No deployed link yet
+            },
+            {
                 name: "Guide for Guides",
                 tech: ["HTML", "CSS", "JavaScript", "Webflow", "RazorPay API"],
                 description: "A digital solution for providing tour guides without middlemen.",
