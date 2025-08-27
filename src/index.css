@@ -1,0 +1,312 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+/* Terminal Theme Animations and Effects */
+@keyframes scan-lines {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.scan-lines {
+  background: linear-gradient(
+    transparent 50%,
+    rgba(0, 255, 41, 0.03) 50%,
+    rgba(0, 255, 41, 0.05) 52%,
+    transparent 52%
+  );
+  background-size: 100% 4px;
+  animation: scan-lines 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Custom Scrollbar for Terminal Theme */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #15803d #052e16;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #052e16;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #15803d;
+  border-radius: 4px;
+  border: 1px solid #166534;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #16a34a;
+}
+
+@layer base {
+    :root {
+        /* Terminal Theme - Dark with Matrix Green */
+        --background: 120 100% 2%;
+        --foreground: 120 100% 85%;
+
+        --card: 120 50% 4%;
+        --card-foreground: 120 100% 85%;
+
+        --popover: 120 50% 4%;
+        --popover-foreground: 120 100% 85%;
+
+        --primary: 120 100% 50%;
+        --primary-foreground: 120 100% 5%;
+
+        --secondary: 120 30% 8%;
+        --secondary-foreground: 120 100% 85%;
+
+        --muted: 120 20% 12%;
+        --muted-foreground: 120 50% 60%;
+
+        --accent: 120 100% 25%;
+        --accent-foreground: 120 100% 95%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 120 30% 15%;
+        --input: 120 30% 8%;
+        --ring: 120 100% 50%;
+
+        --radius: 0.25rem;
+
+        /* Custom Terminal Colors */
+        --terminal-bg: 120 100% 1%;
+        --terminal-text: 120 100% 85%;
+        --terminal-cursor: 120 100% 50%;
+        --terminal-highlight: 120 100% 25%;
+        --neon-glow: 120 100% 50%;
+        --card-shadow: 120 50% 10%;
+
+        /* Gradients */
+        --gradient-terminal: linear-gradient(135deg, hsl(var(--terminal-bg)), hsl(120 80% 3%));
+        --gradient-neon: linear-gradient(135deg, hsl(var(--neon-glow)), hsl(120 100% 40%));
+
+        /* Animations */
+        --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        /* Typography */
+        --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+        --sidebar-background: 0 0% 98%;
+
+        --sidebar-foreground: 240 5.3% 26.1%;
+
+        --sidebar-primary: 240 5.9% 10%;
+
+        --sidebar-primary-foreground: 0 0% 98%;
+
+        --sidebar-accent: 240 4.8% 95.9%;
+
+        --sidebar-accent-foreground: 240 5.9% 10%;
+
+        --sidebar-border: 220 13% 91%;
+
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+
+    .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 212.7 26.8% 83.9%;
+        --sidebar-background: 240 5.9% 10%;
+        --sidebar-foreground: 240 4.8% 95.9%;
+        --sidebar-primary: 224.3 76.3% 48%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 240 3.7% 15.9%;
+        --sidebar-accent-foreground: 240 4.8% 95.9%;
+        --sidebar-border: 240 3.7% 15.9%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground font-mono;
+        background: var(--gradient-terminal);
+    }
+}
+
+@layer components {
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: hsl(var(--terminal-bg));
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: hsl(var(--primary) / 0.6);
+        border-radius: 4px;
+        border: 1px solid hsl(var(--border));
+        box-shadow: 0 0 5px hsl(var(--neon-glow) / 0.3);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: hsl(var(--primary) / 0.8);
+        box-shadow: 0 0 8px hsl(var(--neon-glow) / 0.5);
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+        background: hsl(var(--primary));
+        box-shadow: 0 0 10px hsl(var(--neon-glow) / 0.7);
+    }
+
+    ::-webkit-scrollbar-corner {
+        background: hsl(var(--terminal-bg));
+    }
+
+    /* Firefox scrollbar */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: hsl(var(--primary) / 0.6) hsl(var(--terminal-bg));
+    }
+
+    /* Terminal Effects */
+    .terminal-window {
+        @apply bg-card border border-border rounded-lg shadow-2xl;
+        background: hsl(var(--terminal-bg));
+        box-shadow: 0 0 20px hsl(var(--neon-glow) / 0.2);
+    }
+
+    .terminal-text {
+        color: hsl(var(--terminal-text));
+        text-shadow: 0 0 5px hsl(var(--neon-glow) / 0.6);
+    }
+
+    .terminal-cursor {
+        @apply inline-block w-2 h-5 ml-1 animate-pulse;
+        background: hsl(var(--terminal-cursor));
+        box-shadow: 0 0 5px hsl(var(--neon-glow));
+    }
+
+    .neon-glow {
+        box-shadow:
+            0 0 5px hsl(var(--neon-glow)),
+            0 0 10px hsl(var(--neon-glow)),
+            0 0 15px hsl(var(--neon-glow));
+    }
+
+    /* ID Card Physics */
+    .hanging-card {
+        @apply bg-card border border-border rounded-lg p-6 cursor-grab shadow-2xl;
+        background: hsl(var(--card));
+        border: 1px solid hsl(var(--border));
+        transition: var(--transition-bounce);
+        transform-origin: top center;
+        box-shadow: 0 10px 25px hsl(var(--card-shadow) / 0.5);
+    }
+
+    .hanging-card:hover {
+        transform: translateY(-2px) rotate(1deg);
+    }
+
+    .hanging-card:active {
+        cursor: grabbing;
+        transform: translateY(2px) rotate(-1deg);
+    }
+
+    /* Scan Lines Effect */
+    .scan-lines::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom,
+                transparent 0%,
+                hsl(var(--neon-glow) / 0.03) 50%,
+                transparent 100%);
+        background-size: 100% 4px;
+        pointer-events: none;
+        animation: scan 2s linear infinite;
+    }
+
+    /* Command Prompt Styling */
+    .command-prompt {
+        color: hsl(var(--primary));
+        text-shadow: 0 0 5px hsl(var(--neon-glow) / 0.8);
+    }
+
+    .command-output {
+        color: hsl(var(--terminal-text));
+        opacity: 0.9;
+    }
+}
+
+@layer utilities {
+    .font-mono {
+        font-family: var(--font-mono);
+    }
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
