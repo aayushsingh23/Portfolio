@@ -46,7 +46,7 @@ const commands = {
         data: {
             name: "Aayush Singh",
             title: "Software Developer",
-            bio: "Passionate developer with 5+ years of experience building scalable web applications.",
+            bio: "Passionate developer with experience in building scalable web applications.",
             interests: ["React", "Node.js", "TypeScript", "Python", "AI/ML"]
         }
     },
@@ -130,12 +130,12 @@ const commands = {
                 tech: ["React", "Framer Motion", "Tailwind"],
                 description: "Terminal-themed portfolio with interactive elements",
                 status: "Current",
-                github: "https://github.com/johndeveloper/terminal-portfolio",
+                github: "https://aayush2503.vercel.app/",
                 deployed: "https://john-developer.vercel.app"
             },
             {
                 name: "Digital Diner",
-                tech: ["Tailwind", "Framer Motion", "Vite + React", "ThreeJS"],
+                tech: ["Tailwind", "PostgreSQL ", "React", "Node.js"],
                 description: "Three dimensional portfolio with interactive elements",
                 status: "Completed",
                 github: "https://github.com/aayushsingh23/DIgital-Diner.git",
@@ -147,7 +147,7 @@ const commands = {
                 description: "Three dimensional portfolio with interactive elements",
                 status: "Completed",
                 github: "https://github.com/johndeveloper/terminal-portfolio",
-                deployed: "https://john-developer.vercel.app"
+                deployed: "https://aayushsingh-portfolio.netlify.app/"
             }
         ]
     },

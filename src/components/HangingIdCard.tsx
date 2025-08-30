@@ -11,7 +11,7 @@ export const HangingIdCard = () => {
   // Motion values for the card position with spring physics
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  
+
   // Add spring physics to the motion values
   const springX = useSpring(x, { stiffness: 150, damping: 15, mass: 1 });
   const springY = useSpring(y, { stiffness: 200, damping: 20, mass: 1 });
@@ -22,25 +22,25 @@ export const HangingIdCard = () => {
 
   // Enhanced rotation transforms with better physics
   const rotateX = useTransform(
-    [springY, velocityY], 
+    [springY, velocityY],
     ([latestY, latestVelY]) => {
       const rotationFromPosition = (latestY as number) * -0.1;
       const rotationFromVelocity = (latestVelY as number) * -0.02;
       return Math.max(-15, Math.min(15, rotationFromPosition + rotationFromVelocity));
     }
   );
-  
+
   const rotateY = useTransform(
-    [springX, velocityX], 
+    [springX, velocityX],
     ([latestX, latestVelX]) => {
       const rotationFromPosition = (latestX as number) * 0.1;
       const rotationFromVelocity = (latestVelX as number) * 0.02;
       return Math.max(-20, Math.min(20, rotationFromPosition + rotationFromVelocity));
     }
   );
-  
+
   const rotateZ = useTransform(
-    [springX, velocityX], 
+    [springX, velocityX],
     ([latestX, latestVelX]) => {
       const rotationFromPosition = (latestX as number) * 0.05;
       const rotationFromVelocity = (latestVelX as number) * 0.01;
@@ -115,17 +115,17 @@ export const HangingIdCard = () => {
         dragControls={dragControls}
         dragConstraints={{ left: -120, right: 120, top: -100, bottom: 100 }}
         dragElastic={0.05}
-        dragTransition={{ 
-          bounceStiffness: 200, 
+        dragTransition={{
+          bounceStiffness: 200,
           bounceDamping: 20,
           power: 0.2
         }}
-        whileHover={{ 
+        whileHover={{
           scale: 1.05,
           rotateY: 5,
           transition: { duration: 0.3, ease: "easeOut" }
         }}
-        whileTap={{ 
+        whileTap={{
           scale: 0.95,
           rotateX: 5,
           transition: { duration: 0.1 }
@@ -167,7 +167,7 @@ export const HangingIdCard = () => {
             )
           }}
         />
-        
+
         <Card className="relative w-96 h-[28rem] bg-gradient-to-br from-green-900 via-green-800 to-green-700 border-2 border-green-600 shadow-2xl overflow-hidden">
           {/* Floating glow effect */}
           <motion.div
@@ -182,7 +182,7 @@ export const HangingIdCard = () => {
               ease: "easeInOut"
             }}
           />
-          
+
           {/* Highlight effect based on rotation */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-lg pointer-events-none"
@@ -193,17 +193,17 @@ export const HangingIdCard = () => {
               )
             }}
           />
-          
+
           <CardContent className="relative p-8 h-full flex flex-col text-green-100">
             {/* Header */}
             <div className="text-center mb-8">
               <div className="text-sm text-green-300 mb-2 font-mono">SYSTEM_ID_CARD</div>
               <div className="text-xl font-bold text-green-100 tracking-wide">AAYUSH SINGH</div>
-              <motion.div 
+              <motion.div
                 className="text-sm text-green-200 bg-green-800 px-2 py-1 rounded inline-block border border-green-600"
                 animate={{
-                  boxShadow: isHovered 
-                    ? "0 0 10px rgba(34, 197, 94, 0.3)" 
+                  boxShadow: isHovered
+                    ? "0 0 10px rgba(34, 197, 94, 0.3)"
                     : "0 0 0px rgba(34, 197, 94, 0)"
                 }}
                 transition={{ duration: 0.3 }}
@@ -214,15 +214,31 @@ export const HangingIdCard = () => {
 
             {/* Photo Section */}
             <div className="flex justify-center mb-8">
-              <motion.div 
-                className="w-28 h-28 border-2 border-green-500 rounded bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center shadow-lg"
-                whileHover={{ 
+              <motion.div
+                className="w-28 h-28 border-2 border-green-500 rounded bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center shadow-lg overflow-hidden"
+                whileHover={{
                   scale: 1.05,
                   boxShadow: "0 0 20px rgba(34, 197, 94, 0.4)"
                 }}
                 transition={{ duration: 0.2 }}
               >
-                <span className="text-4xl font-bold text-green-100">JD</span>
+                <img
+                  src="/profile-photo.jpg"
+                  alt="Profile Photo"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to initials if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.nextElementSibling!.style.display = 'flex';
+                  }}
+                />
+                <span
+                  className="text-4xl font-bold text-green-100 w-full h-full flex items-center justify-center"
+                  style={{ display: 'none' }}
+                >
+                  AS
+                </span>
               </motion.div>
             </div>
 
@@ -254,7 +270,7 @@ export const HangingIdCard = () => {
                   <motion.span
                     key={skill}
                     className="bg-green-800 text-green-100 px-3 py-2 rounded text-sm border border-green-600 font-mono"
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.05,
                       backgroundColor: "rgb(22, 101, 52)",
                       boxShadow: "0 0 5px rgba(34, 197, 94, 0.3)"
@@ -270,7 +286,7 @@ export const HangingIdCard = () => {
             </div>
 
             {/* Footer */}
-            <motion.div 
+            <motion.div
               className="mt-6 text-center"
               animate={{
                 opacity: [0.7, 1, 0.7]

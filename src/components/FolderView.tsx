@@ -66,7 +66,7 @@ export const FolderView = ({ type, data, onBack }: FolderViewProps) => {
                     {project.status}
                   </span>
                 </div>
-                
+
                 {/* Project Links */}
                 <div className="flex gap-3 mb-3">
                   {project.github && (
@@ -96,7 +96,7 @@ export const FolderView = ({ type, data, onBack }: FolderViewProps) => {
                     </motion.a>
                   )}
                 </div>
-                
+
                 <p className="text-green-200 text-sm mb-3">{project.description}</p>
                 <div className="flex flex-wrap gap-1">
                   {project.tech.map((tech: string, techIndex: number) => (

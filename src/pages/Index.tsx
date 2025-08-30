@@ -2,6 +2,7 @@ import { useState } from "react";
 import { HangingIdCard } from "@/components/HangingIdCard";
 import { Terminal } from "@/components/Terminal";
 import { FolderView } from "@/components/FolderView";
+import { SplashCursor } from "@/components/SplashCursor";
 
 type ViewMode = "default" | "projects" | "experience" | "education" | "achievements" | "contact" | "about";
 
@@ -26,6 +27,9 @@ const Index = () => {
 
     return (
         <div className="min-h-screen bg-background relative overflow-hidden">
+            {/* Splash Cursor Animation */}
+            <SplashCursor />
+            
             {/* Scan lines effect */}
             <div className="scan-lines absolute inset-0 pointer-events-none"></div>
 
